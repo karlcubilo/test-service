@@ -25,6 +25,11 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+
+    - name: JaCoCo Report
+      uses: Madrapps/jacoco-report@v1.6.1
+            
+        
     - name: Build
       run: mvn clean verify
 
