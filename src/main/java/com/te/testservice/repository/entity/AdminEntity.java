@@ -1,4 +1,4 @@
-package com.te.testservice.repository.dto;
+package com.te.testservice.repository.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -11,7 +11,7 @@ import java.io.Serializable;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Getter
 @Setter
-public class AdminDto implements Serializable {
+public class AdminEntity extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

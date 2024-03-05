@@ -1,7 +1,7 @@
 package com.te.testservice.repository.dao;
 
 import com.te.testservice.config.FakeDataConfig;
-import com.te.testservice.repository.dto.AdminDto;
+import com.te.testservice.repository.entity.AdminEntity;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import org.junit.jupiter.api.Test;
@@ -29,10 +29,10 @@ public class AdminRepositoryTest {
     @Test
     public void findByLastNameAndFirstName_whenDataExist_returnAdminDto() {
 
-        AdminDto adminDto = adminRepository.findByLastNameAndFirstName("CUBILO", "KARL MARVIN");
+        AdminEntity adminEntity = adminRepository.findByLastNameAndFirstName("CUBILO", "KARL MARVIN");
 
-        assertThat(adminDto.getLastName(), equalTo("CUBILO"));
-        assertThat(adminDto.getFirstName(), equalTo("KARL MARVIN"));
-        assertThat(adminDto.getAge(), equalTo(32));
+        assertThat(adminEntity.getLastName(), equalTo("CUBILO"));
+        assertThat(adminEntity.getFirstName(), equalTo("KARL MARVIN"));
+        assertThat(adminEntity.getAge(), equalTo(32));
     }
 }

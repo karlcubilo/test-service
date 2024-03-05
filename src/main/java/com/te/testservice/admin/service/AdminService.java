@@ -4,7 +4,7 @@ import com.te.testservice.admin.builder.AdminBuilder;
 import com.te.testservice.admin.exception.AdminException;
 import com.te.testservice.admin.exception.AdminExceptionMessage;
 import com.te.testservice.repository.dao.AdminRepository;
-import com.te.testservice.repository.dto.AdminDto;
+import com.te.testservice.repository.entity.AdminEntity;
 import com.te.testservice.admin.model.Admin;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -25,9 +25,9 @@ public class AdminService {
 
     public List<Admin> getAdmins() {
 
-        List<AdminDto> adminDtos = adminRepository.findAll();
+        List<AdminEntity> adminEntities = adminRepository.findAll();
 
-        return adminDtos.stream().map(a -> Admin.builder()
+        return adminEntities.stream().map(a -> Admin.builder()
                 .firstName(a.getFirstName())
                 .lastName(a.getLastName())
                 .age(a.getAge())
@@ -36,18 +36,18 @@ public class AdminService {
 
     public Admin createAdmin(Admin admin) {
 
-        AdminDto adminDto = adminRepository.findByLastNameAndFirstName(admin.getLastName(), admin.getFirstName());
-        if(!isValidAdmin(admin, adminDto)) {
+        AdminEntity adminEntity = adminRepository.findByLastNameAndFirstName(admin.getLastName(), admin.getFirstName());
+        if(!isValidAdmin(admin, adminEntity)) {
             throw new AdminException(AdminExceptionMessage.ADMIN_ALREADY_EXIST.getCode(), AdminExceptionMessage.ADMIN_ALREADY_EXIST.getMessage());
         }
         adminRepository.save(adminBuilder.build(admin));
         return admin;
     }
 
-    private boolean isValidAdmin(Admin admin, AdminDto adminDto) {
+    private boolean isValidAdmin(Admin admin, AdminEntity adminEntity) {
 
         boolean isValid = true;
-        if(Objects.nonNull(adminDto) && admin.getLastName().equalsIgnoreCase(adminDto.getLastName()) && admin.getFirstName().equalsIgnoreCase(adminDto.getFirstName())) {
+        if(Objects.nonNull(adminEntity) && admin.getLastName().equalsIgnoreCase(adminEntity.getLastName()) && admin.getFirstName().equalsIgnoreCase(adminEntity.getFirstName())) {
             isValid = false;
         }
         return isValid;
