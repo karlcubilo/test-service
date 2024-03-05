@@ -37,9 +37,8 @@ public class AdminService {
 
     @CreateAdminValidation
     public Admin createAdmin(Admin admin) {
-        adminRepository.save(adminBuilder.build(admin));
+        AdminEntity adminEntity =adminRepository.save(adminBuilder.build(admin));
+        admin.setId(adminEntity.getId());
         return admin;
     }
-
-
 }

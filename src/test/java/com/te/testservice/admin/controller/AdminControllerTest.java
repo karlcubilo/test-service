@@ -1,4 +1,4 @@
-package com.te.testservice.admin;
+package com.te.testservice.admin.controller;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -74,10 +74,10 @@ public class AdminControllerTest extends BaseUnitTest {
     @Test
     public void createAdmin_whenValidRequest_returnAdmin() throws Exception {
 
-        when(adminService.createAdmin(adminArgumentCaptor.capture())).thenReturn(new Admin("test","test",3));
+        when(adminService.createAdmin(adminArgumentCaptor.capture())).thenReturn(new Admin("test","test",3,null));
         MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.post("/admins")
                         .contentType("application/json")
-                        .content(objectMapper.writeValueAsBytes(new Admin("Cubilo","Karl",32)))
+                        .content(objectMapper.writeValueAsBytes(new Admin("Cubilo","Karl",32,null)))
                 )
                 .andExpect(MockMvcResultMatchers.status().isCreated())
                 .andReturn();
@@ -98,7 +98,7 @@ public class AdminControllerTest extends BaseUnitTest {
 
         mockMvc.perform(MockMvcRequestBuilders.post("/admins")
                         .contentType("application/json")
-                        .content(objectMapper.writeValueAsBytes(new Admin("","Karl",32)))
+                        .content(objectMapper.writeValueAsBytes(new Admin("","Karl",32,null)))
                 )
                 .andExpect(MockMvcResultMatchers.status().isBadRequest())
                 .andReturn();

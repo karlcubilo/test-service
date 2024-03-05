@@ -17,4 +17,5 @@ public class Admin {
     String lastName;
     String firstName;
     Integer age;
+    Long id;
 }
