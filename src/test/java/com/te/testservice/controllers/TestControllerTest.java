@@ -2,6 +2,8 @@ package com.te.testservice.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.te.testservice.base.BaseUnitTest;
+import lombok.AccessLevel;
+import lombok.experimental.FieldDefaults;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -15,6 +17,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class TestControllerTest extends BaseUnitTest {
 
     @InjectMocks
