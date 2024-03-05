@@ -1,17 +1,17 @@
 package com.te.testservice.dao.dto;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.io.Serializable;
+
 @Entity
-@Table(name = "admin")
+@Table(name = "admin", schema = "kc_util")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Getter
 @Setter
-public class AdminDto {
+public class AdminDto implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

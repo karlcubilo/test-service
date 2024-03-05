@@ -1,17 +1,17 @@
-package com.te.testservice.model;
+package com.te.testservice.admin.model;
 
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.validation.constraints.NotBlank;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Getter
 @Setter
 @Builder
+@ToString
 public class Admin {
 
+    @NotBlank(message = "Last name is required")
     String lastName;
     String firstName;
     Integer age;

@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AdminDAO extends JpaRepository<AdminDto,Long> {
+
+    AdminDto findByLastNameAndFirstName(String lastName, String firstName);
 }
