@@ -1,5 +1,6 @@
 package com.te.testservice.admin.service;
 
+import com.te.testservice.admin.aspect.CreateAdminValidation;
 import com.te.testservice.admin.builder.AdminBuilder;
 import com.te.testservice.admin.exception.AdminException;
 import com.te.testservice.admin.exception.AdminExceptionMessage;
@@ -34,22 +35,11 @@ public class AdminService {
                 .build()).collect(Collectors.toList());
     }
 
+    @CreateAdminValidation
     public Admin createAdmin(Admin admin) {
-
-        AdminEntity adminEntity = adminRepository.findByLastNameAndFirstName(admin.getLastName(), admin.getFirstName());
-        if(!isValidAdmin(admin, adminEntity)) {
-            throw new AdminException(AdminExceptionMessage.ADMIN_ALREADY_EXIST.getCode(), AdminExceptionMessage.ADMIN_ALREADY_EXIST.getMessage());
-        }
         adminRepository.save(adminBuilder.build(admin));
         return admin;
     }
 
-    private boolean isValidAdmin(Admin admin, AdminEntity adminEntity) {
 
-        boolean isValid = true;
-        if(Objects.nonNull(adminEntity) && admin.getLastName().equalsIgnoreCase(adminEntity.getLastName()) && admin.getFirstName().equalsIgnoreCase(adminEntity.getFirstName())) {
-            isValid = false;
-        }
-        return isValid;
-    }
 }
