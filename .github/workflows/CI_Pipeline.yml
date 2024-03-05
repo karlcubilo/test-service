@@ -26,9 +26,6 @@ jobs:
 
     - name: Create java report
       run: mvn clean jacoco:prepare-agent install jacoco:report
-        
-    - name: Build and analyze
-      run: mvn clean verify
 
     - name: Build and analyze
       env:
