@@ -1,4 +1,4 @@
-package com.te.testservice.dao.dto;
+package com.te.testservice.repository.dto;
 
 import jakarta.persistence.*;
 import lombok.*;

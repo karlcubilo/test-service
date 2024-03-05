@@ -1,5 +1,0 @@
-USE kc_util;
-
-INSERT INTO admins (LAST_NAME, FIRST_NAME, AGE) VALUES ('CUBILO', 'KARL MARVIN' , '32');
-
-

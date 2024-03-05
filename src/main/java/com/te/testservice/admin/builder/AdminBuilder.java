@@ -1,7 +1,7 @@
 package com.te.testservice.admin.builder;
 
 import com.te.testservice.admin.model.Admin;
-import com.te.testservice.dao.dto.AdminDto;
+import com.te.testservice.repository.dto.AdminDto;
 import org.springframework.stereotype.Component;
 
 @Component

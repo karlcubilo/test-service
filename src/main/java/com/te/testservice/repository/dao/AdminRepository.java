@@ -1,11 +1,11 @@
-package com.te.testservice.dao;
+package com.te.testservice.repository.dao;
 
-import com.te.testservice.dao.dto.AdminDto;
+import com.te.testservice.repository.dto.AdminDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface AdminDAO extends JpaRepository<AdminDto,Long> {
+public interface AdminRepository extends JpaRepository<AdminDto,Long> {
 
     AdminDto findByLastNameAndFirstName(String lastName, String firstName);
 }
