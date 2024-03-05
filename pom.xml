@@ -10,11 +10,12 @@
 	</parent>
 	<groupId>com.te</groupId>
 	<artifactId>test-service</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>test-service</name>
 	<description>Personal project space</description>
 	<properties>
 		<java.version>17</java.version>
+		<junit.jupiter.version>5.10.1</junit.jupiter.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -33,6 +34,17 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+		<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>${junit.jupiter.version}</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
