@@ -9,6 +9,8 @@ import lombok.experimental.FieldDefaults;
 @Setter
 @Builder
 @ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class Admin {
 
     @NotBlank(message = "Last name is required")

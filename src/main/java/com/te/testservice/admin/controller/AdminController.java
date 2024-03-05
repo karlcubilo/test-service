@@ -6,6 +6,7 @@ import jakarta.validation.Valid;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +27,7 @@ public class AdminController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public Admin createAdmin(@RequestBody @Valid Admin admin) {
         return adminService.createAdmin(admin);
     }
