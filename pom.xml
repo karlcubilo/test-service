@@ -18,6 +18,7 @@
 		<junit.jupiter.version>5.10.1</junit.jupiter.version>
 		<h2.version>2.2.222</h2.version>
 		<sql.connector.version>8.3.0</sql.connector.version>
+		<jacoco.version>0.8.8</jacoco.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -101,6 +102,26 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco.version}</version>
+                <executions>
+                    <execution>
+                        <id>jacoco-initialize</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>jacoco-site</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 		</plugins>
 	</build>
 
