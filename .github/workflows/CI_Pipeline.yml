@@ -39,7 +39,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build]
     if:
-      contains('wip', github.ref)
+      contains(github.ref, 'wip')
     steps:
       - name: Package
         run: echo 'Test Package'
@@ -49,7 +49,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [package]
     if:
-      contains('wip', github.ref)
+      contains(github.ref, 'wip')
     steps:
       - name: Deployment
         run: echo 'Test Deployment'
