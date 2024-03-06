@@ -14,20 +14,12 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import java.rmi.ServerException;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 @ControllerAdvice
 @Slf4j
 public class ErrorHandlingAdvice {
-
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    @ExceptionHandler(ServerException.class)
-    public void internalServerErrorHandler(ServerException exception) {
-        log.error("Internal Server Exception: ", exception);
-    }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
