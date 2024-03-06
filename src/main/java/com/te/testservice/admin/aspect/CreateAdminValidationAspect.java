@@ -38,7 +38,7 @@ public class CreateAdminValidationAspect {
     private boolean isValidAdmin(Admin admin, AdminEntity adminEntity) {
 
         boolean isValid = true;
-        if (Objects.nonNull(adminEntity) && admin.getLastName().equalsIgnoreCase(adminEntity.getLastName()) && admin.getFirstName().equalsIgnoreCase(adminEntity.getFirstName())) {
+        if (Objects.nonNull(adminEntity) && (admin.getLastName().equalsIgnoreCase(adminEntity.getLastName()) && admin.getFirstName().equalsIgnoreCase(adminEntity.getFirstName()))) {
             isValid = false;
         }
         return isValid;

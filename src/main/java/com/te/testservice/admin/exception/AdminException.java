@@ -6,12 +6,11 @@ import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
 @Getter
-@Setter
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class AdminException extends RuntimeException {
 
-    String code;
-    String message;
+    final String code;
+    final String message;
 
     public AdminException(String code, String message) {
         super(message);
