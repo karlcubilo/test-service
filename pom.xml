@@ -19,7 +19,7 @@
 		<h2.version>2.2.222</h2.version>
 		<sql.connector.version>8.3.0</sql.connector.version>
 		<open.api.version>2.2.0</open.api.version>
-		<sonar.organization>ralienpp</sonar.organization>
+		<sonar.organization>karlcubilo</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
 		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
