@@ -11,9 +11,6 @@ name: Java CI with Maven
 on:
   pull_request:
     branches: [ "wip" ]
-    paths:
-      - 'src/**'
-      - '.github/workflows/CI_Pipeline.yml'
   push:
     branches: [ "wip" ]   
     
