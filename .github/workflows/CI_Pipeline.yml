@@ -44,7 +44,7 @@ jobs:
       - name: Package
         run: 
           mvn package
-          docker build -t my-spring-boot-app .
+          docker build -t ${{ github.event.repository.name }} .
           docker tag ${{ github.event.repository.name }} my-docker-registry/${{ github.event.repository.name }}
           docker push my-docker-registry/${{ github.event.repository.name }}
         
