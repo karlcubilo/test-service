@@ -41,7 +41,7 @@ jobs:
     if:
       contains('wip', github.ref)
     steps:
-      - name: Deployment
+      - name: Package
         run: echo 'Test Package'
 
   deployment:
