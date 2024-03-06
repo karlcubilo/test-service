@@ -57,6 +57,43 @@ public class CreateAdminValidationAspectTest extends BaseUnitTest {
     }
 
     @Test
+    public void validate_whenAdminAlreadyExistButNotSameLastName_throwException() throws Throwable {
+
+        AdminEntity adminEntity = new AdminEntity();
+        adminEntity.setLastName("last");
+        adminEntity.setFirstName("first");
+
+        when(adminRepository.findByLastNameAndFirstName(lastNameArgumentCaptor.capture(), firstNameArgumentCaptor.capture())).thenReturn(adminEntity);
+        when(proceedingJoinPoint.getArgs()).thenReturn(new Object[]{Admin.builder().lastName("last1").firstName("first").build()});
+        when(proceedingJoinPoint.proceed()).thenReturn(new Object());
+        Object object = createAdminValidationAspect.validate(proceedingJoinPoint);
+
+
+        assertNotNull(object);
+        assertThat(lastNameArgumentCaptor.getValue(), equalTo("last1"));
+        assertThat(firstNameArgumentCaptor.getValue(), equalTo("first"));
+    }
+
+    @Test
+    public void validate_whenAdminAlreadyExistButNotSameLastFirstName_throwException() throws Throwable {
+
+        AdminEntity adminEntity = new AdminEntity();
+        adminEntity.setLastName("last");
+        adminEntity.setFirstName("first");
+
+        when(adminRepository.findByLastNameAndFirstName(lastNameArgumentCaptor.capture(), firstNameArgumentCaptor.capture())).thenReturn(adminEntity);
+        when(proceedingJoinPoint.getArgs()).thenReturn(new Object[]{Admin.builder().lastName("last").firstName("first1").build()});
+        when(proceedingJoinPoint.proceed()).thenReturn(new Object());
+        Object object = createAdminValidationAspect.validate(proceedingJoinPoint);
+
+
+        assertNotNull(object);
+        assertThat(lastNameArgumentCaptor.getValue(), equalTo("last"));
+        assertThat(firstNameArgumentCaptor.getValue(), equalTo("first1"));
+    }
+
+
+    @Test
     public void validate_whenAdminDoesNotExist_proceed() throws Throwable {
 
         when(adminRepository.findByLastNameAndFirstName(lastNameArgumentCaptor.capture(), firstNameArgumentCaptor.capture())).thenReturn(null);
