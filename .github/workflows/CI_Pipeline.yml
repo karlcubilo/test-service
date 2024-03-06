@@ -32,4 +32,15 @@ jobs:
       env:
         GIT_HUB_TOKEN: ${{ secrets.GH_ACTION_TOKEN }}
         SONARCLOUD_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+  deployment:
+    name: Deployment
+    runs-on: ubuntu-latest
+    needs: [build]
+    if:
+      contains('wip', github.ref)
+    steps:
+      - name: Deployment
+        run: echo 'Test Deployment'
+      
   
