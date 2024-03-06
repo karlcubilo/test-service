@@ -20,6 +20,8 @@
 		<sql.connector.version>8.3.0</sql.connector.version>
 		<open.api.version>2.2.0</open.api.version>
 		<sonar.coverage.jacoco.xmlReportPaths>../app-it/target/site/jacoco-aggregate/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+		<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
+  		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
 	</properties>
 	<dependencies>
 		<dependency>
