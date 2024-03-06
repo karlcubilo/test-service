@@ -24,8 +24,8 @@
 		<sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
 		<sonar.language>java</sonar.language>
 		<sonar.verbose>true</sonar.verbose>
-		<sonar.exclusions>**/model/**,**/repository/**/*Entity.java</sonar.exclusions>
-		<sonar.coverage.exclusions>**/model/**,**/repository/**/*Entity.java</sonar.coverage.exclusions>
+		<!--<sonar.exclusions>**/model/**,**/repository/**/*Entity.java</sonar.exclusions>
+		<sonar.coverage.exclusions>**/model/**,**/repository/**/*Entity.java</sonar.coverage.exclusions>-->
 	</properties>
 	<dependencies>
 		<dependency>
