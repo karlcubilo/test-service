@@ -25,8 +25,8 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Sonar Cloud cloud
-      run:  mvn clean verify sonar:sonar -Dsonar.projectKey=karlcubilo -Dsonar.organization=karlcubilo -Dsonar.host.url=https://sonarcloud.io -Dsonar.token=$SONARCLOUD_TOKEN -Dsonar.scm.disabled=true
+    - name: Build with Sonar Cloud
+      run:  mvn clean verify -P sonar -Dsonar.projectKey=karlcubilo -Dsonar.organization=karlcubilo -Dsonar.host.url=https://sonarcloud.io -Dsonar.token=$SONARCLOUD_TOKEN -Dsonar.scm.disabled=true
       env:
         GIT_HUB_TOKEN: ${{ secrets.GH_ACTION_TOKEN }}
         SONARCLOUD_TOKEN: ${{ secrets.SONAR_TOKEN }}
