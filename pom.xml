@@ -19,6 +19,7 @@
 		<h2.version>2.2.222</h2.version>
 		<sql.connector.version>8.3.0</sql.connector.version>
 		<open.api.version>2.2.0</open.api.version>
+		<sonar.sources>src/main/java</sonar.sources>
 	</properties>
 	<dependencies>
 		<dependency>
