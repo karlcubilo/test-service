@@ -42,8 +42,12 @@ jobs:
       contains(github.ref, 'wip')
     steps:
       - name: Package
-        run: echo 'Test Package'
-
+        run: 
+          mvn package
+          docker build -t my-spring-boot-app .
+          docker tag ${{ github.event.repository.name }} my-docker-registry/${{ github.event.repository.name }}
+          docker push my-docker-registry/${{ github.event.repository.name }}
+        
   deployment:
     name: Deployment
     runs-on: ubuntu-latest
