@@ -33,6 +33,10 @@ jobs:
       env:
         GIT_HUB_TOKEN: ${{ secrets.GH_ACTION_TOKEN }}
         SONARCLOUD_TOKEN: ${{ secrets.SONAR_TOKEN }}
+    - name: Perform Scan
+      uses: ShiftLeftSecurity/scan-action@master
+      with:
+        type: "credscan,java,depscan"
 
   package:
     name: Package Application
