@@ -23,14 +23,6 @@ on:
         
 
 jobs:
-  logging:
-    runs-on: ubuntu-latest
-    steps:
-    -  name: Log
-       shell: bash
-       run: |
-         echo 'SONARCLOUD TOKEN - '${{secrets.SONAR_TOKEN}}
-
   build:
     uses: karlcubilo/lb-gitops-actions/.github/workflows/java-ci-pipeline.yml@latest
     with:
