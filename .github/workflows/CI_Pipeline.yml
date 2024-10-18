@@ -19,9 +19,6 @@ on:
       run-sonar:
         required: false
         type: boolean
-      java-version:
-        required: false
-        type: string
 
 jobs:
   build:
@@ -29,4 +26,5 @@ jobs:
     with:
       package-options: clean package -Dci.buildNumber=lb-${{github.ref_name}}-${{github.run_number}} -Dci.buildURL=${{github.repositoryUrl}} -Dci.branchName=${{github.ref_name}}
       application-name: test-service
+      java-version: '17'
       
