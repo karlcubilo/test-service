@@ -20,7 +20,17 @@ on:
         required: false
         type: boolean
 
+        
+
 jobs:
+  logging:
+    runs-on: ubuntu-latest
+    steps:
+    -  name: Log
+       shell: bash
+       run: |
+         echo 'SONARCLOUD TOKEN - '${{secrets.SONARCLOUD_TOKEN}}
+
   build:
     uses: karlcubilo/lb-gitops-actions/.github/workflows/java-ci-pipeline.yml@latest
     with:
@@ -30,4 +40,5 @@ jobs:
       run-sonar: ${{inputs.run-sonar}}
     secrets:
       SONARCLOUD_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      
       
