@@ -25,5 +25,5 @@ jobs:
     uses: karlcubilo/lb-gitops-actions/.github/workflows/java-ci-pipeline.yml@latest
     with:
       package-options: clean package -Dci.buildNumber=lb-${{github.ref_name}}-${{github.run_number}} -Dci.buildURL=${{github.repositoryUrl}} -Dci.branchName=${{github.ref_name}}
-      
+      application-name: test-service
   
