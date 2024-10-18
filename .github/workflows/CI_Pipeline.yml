@@ -28,4 +28,6 @@ jobs:
       application-name: test-service
       java-version: '17'
       run-sonar: ${{inputs.run-sonar}}
+    secrets:
+      SONARCLOUD_TOKEN: ${{ secrets.SONAR_TOKEN }}
       
